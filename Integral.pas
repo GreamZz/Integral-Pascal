@@ -1,4 +1,4 @@
-﻿Program integral;
+Program integral;
 uses crt;
 
 function f(x:real):real;
@@ -58,7 +58,7 @@ end;
 
 var
   num,n: integer;
-  a,b,y1,y2,y3,eps: real;
+  a,b,y1,y2,y3,eps,otn: real;
   limit: boolean;
 begin
   limit := false;
@@ -93,11 +93,12 @@ begin
            clrscr;
            writeln('Интеграл = ', y1:4:4);
            otvet(a,b,2*n,y2);
-           writeln('Интеграл с 2n = ', y2:4:4);
            y3 := 2 * y2 - y1;
            writeln('Улучшенный интеграл = ', y3:4:4);
            eps := abs(y2 - y1);
-           writeln('Погрешность = ', eps:4:4);
+           otn := eps / y2 * 100;
+           writeln('Абсолютная погрешность = ', eps:4:4);
+           writeln('Относительная погрешность = ', otn:4:4,'%');
            readkey;
          end;
 
